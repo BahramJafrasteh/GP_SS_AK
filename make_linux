@@ -1,0 +1,22 @@
+#
+#
+#  The machine (platform) identifier to append to the library names
+#
+SHELL = /bin/sh
+
+PLAT = _LINUX
+LAPACKLIBS = -larmadillo 
+# commands to make statically&dynamically linked libraries and their extensions
+LIBSCOMMAND = ar rcs
+LIBDCOMMAND = gcc -shared -o
+LIBSEXT = .a
+LIBDEXT = .so
+
+
+LD=g++ -std=c++11
+LDFLAGS = ${MATLABLIBS} ${LAPACKLIBS} ${F2CLIB} -lc ${MATLABXLINKFLAG}
+CC=g++ -std=c++11
+CCFLAGS = -ggdb -DDBG -fPIC -I$(INCLUDE) -D$(PLAT) $(MATLABFLAG)
+#CCFLAGS = -O3 -fPIC -I$(INCLUDE) -D$(PLAT) $(MATLABFLAG)
+FCFLAGS = -funroll-all-loops -O3 -fPIC
+

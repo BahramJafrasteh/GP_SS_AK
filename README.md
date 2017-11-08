@@ -5,14 +5,23 @@
 //////////////////////////////////////////////////////////
 Gaussian process with symmetric standardization and anisotropic kernel for
 ore grad estimation. (C++ code) 
+
 //////////////////////////////////////////////////////////
+
 Bahram Jafrasteh
+
 Ph.D. candidate
+
 Isfahan University of Technology, Isfahan, Iran.
+
 b.jafrasteh@gmail.com
+
 //////////////////////////////////////////////////////////
+
 -Requirements:
+
 	-Armadillo
+
 	-GNUPlot
 //////////////////////////////////////////////////////////	
 The software has been written with KDevelop on Ubuntu.

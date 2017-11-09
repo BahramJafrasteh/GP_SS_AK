@@ -245,11 +245,18 @@ void GP_Cntrl::train()
   {
     for (int i = 0; i < GPModel->KerenlW->getNPars(); i++)
     {
+      
+      if ( GPModel->KerenlW->getParamName(i) == "InversewidthR_ExpAns" &&
+	X.n_cols == 3)
+	continue;
       cout << " Please input an initial value for " << GPModel->KerenlW->getParamName(i) << 
 	      " (Default value was " << GPModel->KerenlW->getParam(i)
       << ") : " <<endl;
       long double d;
-      cin >> d;
+      d = GPModel->KerenlW->getParam(i);
+      if (cin.peek() != '\n')
+	cin >> d;
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
       GPModel->KerenlW->setParam(d, i);    
     }
   }
@@ -268,7 +275,10 @@ void GP_Cntrl::train()
     cout << "Please input an initial value for Gauss likelihood function" 
     " : " <<endl;
     long double d;
-    cin >> d;
+    d = GPModel->getHyperlfVal(0);
+    if (cin.peek() != '\n')
+      cin >> d;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     GPModel->setHyperlfVal(d, 0);
   }
   else{

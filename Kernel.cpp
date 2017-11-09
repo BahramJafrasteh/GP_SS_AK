@@ -316,7 +316,7 @@ void Kern_Bias::_init()
 // Changing this parameter could affect the performanc of the GP.
 void Kern_Bias::setInitPars()
 {
-  Sigma_Bias = 2.0;  
+  Sigma_Bias = 0.2;  
 }
 
 double Kern_Bias::Diag_Kernel(const mat& X, unsigned int index) const

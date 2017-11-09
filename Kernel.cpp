@@ -576,7 +576,7 @@ Kern_Exponential::~Kern_Exponential()
 void Kern_Exponential::_init()
 {
   nParams = 2;
-  setKerName("Exponential");
+  setKerName("Exp");
   setParamName("Hayper_Euc_Exp", 0);
   setParamName("Sigma_Exp", 1);
   setInitPars();

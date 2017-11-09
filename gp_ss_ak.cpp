@@ -238,15 +238,16 @@ void GP_Cntrl::train()
   << endl;  
   for (int i = 0; i < GPModel->KerenlW->getNPars(); i++)
     cout << GPModel->KerenlW->getParamName(i)<< " : " << GPModel->KerenlW->getParam(i)<<endl;
-  cout << "Do you want to change the defult parameters?" << endl;
+  cout << "Do you want to change the defult kernel parameters (Yes|Y|y or press any key)?" << endl;
   string res = "No";
    cin >> res;
   if ( res == "Yes" || res == "Y" || res == "y" )
   {
     for (int i = 0; i < GPModel->KerenlW->getNPars(); i++)
     {
-      cout << "Please input an initial value for " << GPModel->KerenlW->getParamName(i) << 
-      " : " <<endl;
+      cout << " Please input an initial value for " << GPModel->KerenlW->getParamName(i) << 
+	      " (Default value was " << GPModel->KerenlW->getParam(i)
+      << ") : " <<endl;
       long double d;
       cin >> d;
       GPModel->KerenlW->setParam(d, i);    
@@ -259,7 +260,9 @@ void GP_Cntrl::train()
 
   cout << "The inital value of the likelihood function are as follows :"<< endl;
   cout << "likelihood hyperparameter : " << GPModel->getHyperlfVal(0) <<endl;
-
+    cout << "Do you want to change the defult likelihood function parameters (Yes|Y|y or press any key)?" << endl;
+  res = "No";
+   cin >> res;
   if ( res == "Yes" || res == "Y" || res == "y" )
   {
     cout << "Please input an initial value for Gauss likelihood function" 
